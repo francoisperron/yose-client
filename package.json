@@ -1,0 +1,17 @@
+{
+  "name": "yose-client",
+  "version": "0.0.1",
+  "description": "One solution of YoseTheGame in JavaScript",
+  "engines": {
+    "node": "0.10.29",
+    "npm": "1.*"
+  },
+  "dependencies": {
+    "http-server": "^0.6.1"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "start": "node_modules/http-server/bin/http-server -p 5001"
+  }
+}
