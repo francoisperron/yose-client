@@ -13,5 +13,6 @@
   },
   "scripts": {
     "start": "node_modules/http-server/bin/http-server -p 5001"
-  }
+  },
+  "main": "node_modules/http-server/bin/http-server"
 }
