@@ -1,0 +1,4 @@
+#!/bin/bash
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+$OPENSHIFT_DATA_DIR/sbin/nginx -s stop
