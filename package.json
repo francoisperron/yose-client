@@ -10,9 +10,12 @@
     "http-server": "^0.6.1"
   },
   "devDependencies": {
+    "jasmine-node": "^1.14.3",
+    "zombie": "^2.0.0-alpha31"
   },
   "scripts": {
-    "start": "node_modules/http-server/bin/http-server -p 5001"
+    "start": "node_modules/http-server/bin/http-server -p 5001",
+    "test": "node_modules/jasmine-node/bin/jasmine-node --captureExceptions ."
   },
   "main": "node_modules/http-server/bin/http-server"
 }
