@@ -25,4 +25,11 @@ describe('First web page', function () {
             done();
         });
     });
+
+    it('displays a link to the first web service', function (done) {
+        browser.visit('http://localhost:5001').then(function () {
+            expect(browser.query('a#ping-challenge-link').href).toEqual('http://localhost:5001/ping');
+            done();
+        });
+    });
 });
