@@ -14,8 +14,11 @@ describe('First web page', function () {
 
     it('displays a link to the github repo', function (done) {
         browser.visit('http://localhost:5001').then(function () {
-            expect(browser.query('#repository-link').href).toEqual('https://github.com/francoisperron/yose-client');
-            done();
+            browser.clickLink('#repository-link', function(){
+                expect(browser.text('#readme')).toContain('YoseTheGame');
+                done();
+            });
+
         });
     });
 });
