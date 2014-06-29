@@ -15,7 +15,8 @@
   },
   "scripts": {
     "start": "node_modules/http-server/bin/http-server -p 5001",
-    "test": "node_modules/jasmine-node/bin/jasmine-node --captureExceptions ."
+    "test": "node_modules/jasmine-node/bin/jasmine-node --captureExceptions .",
+    "livereload": "livereload . -i 200"
   },
   "main": "node_modules/http-server/bin/http-server"
 }
