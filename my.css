@@ -1,0 +1,15 @@
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Droid Sans Mono", Helvetica, Arial, sans-serif !important;
+}
+
+a, a:hover {
+    color: #B00040;
+}
+
+.green {
+color: #81BA72;
+}
+
+.kind-of-center {
+    margin-top: 20%;
+}
