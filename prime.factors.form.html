@@ -2,14 +2,27 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="my.css" rel="stylesheet" type="text/css">
     <title>prime-factors</title>
 </head>
 <body>
-<form method="GET" action="/primeFactors">
-    <div id="title">Prime Factors</div>
-    <div id="invitation">Enter a number to decompose</div>
-    <input id="number" type="text" name="number"/>
-    <button id="go">GO</button>
-</form>
+<div class="text-center kind-of-center">
+    <form>
+        <div class="green" id="title">Prime Factors</div>
+        <div id="invitation">Enter a number to decompose</div>
+        <div class="row">
+          <div class="col-md-offset-5 col-md-2">
+            <div class="input-group input-group-sm">
+                <input id="number" type="text" class="form-control" name="number">
+              <span class="input-group-btn">
+                <button id="go" class="btn btn-default" type="button">GO</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    </form>
+</div>
 </body>
 </html>
