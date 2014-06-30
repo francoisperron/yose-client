@@ -9,20 +9,27 @@
 </head>
 <body>
 <div class="text-center kind-of-center">
-    <form>
-        <div class="green" id="title">Prime Factors</div>
-        <div id="invitation">Enter a number to decompose</div>
-        <div class="row">
-          <div class="col-md-offset-5 col-md-2">
+
+    <div class="green" id="title">Prime Factors</div>
+    <div id="invitation">Enter a number to decompose</div>
+    <div class="row">
+        <div class="col-md-offset-5 col-md-2">
             <div class="input-group input-group-sm">
                 <input id="number" type="text" class="form-control" name="number">
               <span class="input-group-btn">
-                <button id="go" class="btn btn-default" type="button">GO</button>
+                <button id="go" class="btn btn-default" type="button"
+                        onclick="new PrimeFactorsRequest().decompose($('#number').val())">GO
+                </button>
               </span>
             </div>
-          </div>
         </div>
-    </form>
+    </div>
+
+    <div class="green some-space-on-top" id="result-title"></div>
+    <div id="result"></div>
+
+    <script src="/lib/jquery/jquery-1.11.1.min.js"></script>
+    <script src="/features/prime.factors/prime.factors.request.js"></script>
 </div>
 </body>
 </html>
