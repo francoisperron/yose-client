@@ -2,6 +2,11 @@ function PrimeFactorsRequest() {
 }
 
 PrimeFactorsRequest.prototype.decompose = function (number) {
+    if(isNaN(parseInt(number))){
+        displayResult({error: number + ' is not a number'});
+        return;
+    }
+
     $.ajax({
         url: '/primeFactors',
         data: { number: number },
@@ -18,5 +23,4 @@ function displayResult(data) {
     else{
         $('#result').html(data.number + ' = ' + data.decomposition.join(' x '));
     }
-
 }

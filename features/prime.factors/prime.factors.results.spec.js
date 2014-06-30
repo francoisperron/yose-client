@@ -1,7 +1,7 @@
 /*global describe, beforeEach, afterEach, it, expect */
 var Browser = require('zombie');
 
-ddescribe('The prime factors result', function () {
+describe('The prime factors result', function () {
 
     var browser = new Browser();
     var primeFactorsPage = 'http://localhost/primeFactors/ui';
@@ -16,13 +16,24 @@ ddescribe('The prime factors result', function () {
         });
     });
 
-    it('supports decomposition errors', function (done) {
-            browser.visit(primeFactorsPage).then(function () {
-                browser.fill("#number", "1000001");
-                browser.click("#go").then(function () {
-                    expect(browser.text('#result')).toEqual('too big number (>1e6)');
-                    done();
-                });
+    it('supports too big number error', function (done) {
+        browser.visit(primeFactorsPage).then(function () {
+            browser.fill("#number", "1000001");
+            browser.click("#go").then(function () {
+                expect(browser.text('#result')).toEqual('too big number (>1e6)');
+                done();
             });
         });
+    });
+
+    it('supports not a number error', function (done) {
+        browser.visit(primeFactorsPage).then(function () {
+            browser.fill("#number", "allo");
+            browser.click("#go").then(function () {
+                expect(browser.text('#result')).toEqual('allo is not a number');
+                done();
+            });
+        });
+    });
+
 });
