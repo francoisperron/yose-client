@@ -11,5 +11,12 @@ PrimeFactorsRequest.prototype.decompose = function (number) {
 
 function displayResult(data) {
     $('#result-title').html('Result');
-    $('#result').html(data.number + ' = ' + data.decomposition.join(' x '));
+
+    if(data.error){
+        $('#result').html(data.error);
+    }
+    else{
+        $('#result').html(data.number + ' = ' + data.decomposition.join(' x '));
+    }
+
 }

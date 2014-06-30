@@ -1,7 +1,7 @@
 /*global describe, beforeEach, afterEach, it, expect */
 var Browser = require('zombie');
 
-describe('The prime factors result', function () {
+ddescribe('The prime factors result', function () {
 
     var browser = new Browser();
     var primeFactorsPage = 'http://localhost/primeFactors/ui';
@@ -15,4 +15,14 @@ describe('The prime factors result', function () {
             });
         });
     });
+
+    it('supports decomposition errors', function (done) {
+            browser.visit(primeFactorsPage).then(function () {
+                browser.fill("#number", "1000001");
+                browser.click("#go").then(function () {
+                    expect(browser.text('#result')).toEqual('too big number (>1e6)');
+                    done();
+                });
+            });
+        });
 });
