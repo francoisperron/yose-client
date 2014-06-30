@@ -28,9 +28,9 @@ describe('The prime factors result', function () {
 
     it('supports not a number error', function (done) {
         browser.visit(primeFactorsPage).then(function () {
-            browser.fill("#number", "allo");
+            browser.fill("#number", "1allo");
             browser.click("#go").then(function () {
-                expect(browser.text('#result')).toEqual('allo is not a number');
+                expect(browser.text('#result')).toEqual('1allo is not a number');
                 done();
             });
         });

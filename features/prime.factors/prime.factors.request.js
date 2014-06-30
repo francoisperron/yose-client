@@ -2,7 +2,7 @@ function PrimeFactorsRequest() {
 }
 
 PrimeFactorsRequest.prototype.decompose = function (number) {
-    if(isNaN(parseInt(number))){
+    if(isNaN(number)){
         displayResult({error: number + ' is not a number'});
         return;
     }
