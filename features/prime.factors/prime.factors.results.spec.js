@@ -36,4 +36,16 @@ describe('The prime factors result', function () {
         });
     });
 
+    xit('supports multiple numbers', function (done) {
+        browser.visit(primeFactorsPage).then(function () {
+            browser.fill("#number", "15, 300, hello");
+            browser.click("#go").then(function () {
+                expect(browser.text('ol#results li:nth:child(0)')).toEqual('15 = 3 x 5');
+                expect(browser.text('ol#results li:nth:child(1)')).toEqual('300 = 2 x 2 x 3 x 5 x 5');
+                expect(browser.text('ol#results li:nth:child(2)')).toEqual('hello is not a number');
+                done();
+            });
+        });
+    });
+
 });

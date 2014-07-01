@@ -7,11 +7,7 @@ PrimeFactorsRequest.prototype.decompose = function (number) {
         return;
     }
 
-    $.ajax({
-        url: '/primeFactors',
-        data: { number: number },
-        success: displayResult
-    });
+    $.get('/primeFactors', { number: number }, displayResult);
 };
 
 function displayResult(data) {
