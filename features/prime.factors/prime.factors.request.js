@@ -1,3 +1,5 @@
+var $ = $ || require('jquery');
+
 function PrimeFactorsRequest() {
 }
 
@@ -20,3 +22,6 @@ function displayResult(data) {
         $('#result').html(data.number + ' = ' + data.decomposition.join(' x '));
     }
 }
+
+var module = module || {};
+module.exports = PrimeFactorsRequest;
