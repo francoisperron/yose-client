@@ -5,51 +5,45 @@ function PrimeFactorsRequest() {
 
 PrimeFactorsRequest.prototype.decompose = function (numbers) {
     var queryString = '?number=' + numbers.split(',').join('&number=');
-    $.get('/primeFactors' + queryString).success(displayResult);
+    $.get('/primeFactors' + queryString).success(render);
 };
 
-function displayResult(data) {
+function render(data) {
+    $('#result-title').html('Result');
     $('#result').empty();
     $('#results').empty();
 
     if (data instanceof Array) {
-        displayMultipleResults(data);
+        renderMultipleResults(data);
     }
     else {
-        displayOneResult(data);
+        renderOneResult(data);
     }
 }
 
-function displayMultipleResults(datas) {
-    $('#result-title').html('Result');
-
+function renderMultipleResults(datas) {
     for (var i = 0; i < datas.length; i++) {
-        var resultItem;
-        var data = datas[i];
-        if (data.error == 'not a number') {
-            resultItem = data.number + ' is ' + data.error;
-        }
-        else if (data.error) {
-            resultItem = data.error;
-        }
-        else {
-            resultItem = data.number + ' = ' + data.decomposition.join(' x ');
-        }
-        $('#results').append('<li>' + resultItem + '</li>')
+        $('#results').append('<li>' + format(datas[i]) + '</li>')
     }
 }
-function displayOneResult(data) {
-    $('#result-title').html('Result');
+
+function renderOneResult(data) {
+    $('#result').html(format(data));
+}
+
+function format(data) {
+    var resultString;
 
     if (data.error == 'not a number') {
-        $('#result').html(data.number + ' is ' + data.error);
+        resultString = data.number + ' is ' + data.error;
     }
     else if (data.error) {
-        $('#result').html(data.error);
+        resultString = data.error;
     }
     else {
-        $('#result').html(data.number + ' = ' + data.decomposition.join(' x '));
+        resultString = data.number + ' = ' + data.decomposition.join(' x ');
     }
+    return resultString;
 }
 
 var module = module || {};
