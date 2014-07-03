@@ -33,4 +33,11 @@ describe('First web page', function () {
             done();
         });
     });
+
+    it('displays a link to the prime factor decomposition', function (done) {
+        browser.visit(firstWebPage).then(function () {
+            expect(browser.query('a#prime-factors-decomposition-link').href).toEqual('http://localhost:5001/primeFactors/ui');
+            done();
+        });
+    });
 });
