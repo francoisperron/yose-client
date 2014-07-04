@@ -34,9 +34,16 @@ describe('First web page', function () {
         });
     });
 
-    it('displays a link to the prime factor decomposition', function (done) {
+    it('displays a link to the prime factor challenge', function (done) {
         browser.visit(firstWebPage).then(function () {
             expect(browser.query('a#prime-factors-decomposition-link').href).toEqual('http://localhost:5001/primeFactors/ui');
+            done();
+        });
+    });
+
+    it('displays a link to the minesweeper challenge', function (done) {
+        browser.visit(firstWebPage).then(function () {
+            expect(browser.query('a#minesweeper-challenge-link').href).toEqual('http://localhost:5001/minesweeper');
             done();
         });
     });
